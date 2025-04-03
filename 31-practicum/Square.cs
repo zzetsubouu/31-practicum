@@ -40,9 +40,16 @@ namespace _31_practicum
         {
             return Side1*4;
         }
+        public static Figure NewFigure()
+        {
+            Console.Clear();
+            Console.Write("Введите длину стороны квадрата: ");
+            double side = double.Parse(Console.ReadLine());
+            return new Square("Квадрат", side);
+        }
         public override string Print()
         {
-            return $"стороны квадрата равны {Side1}";
+            return $"Стороны квадрата равны {Side1}, периметр = {Perimeter()}, площадь = {Area()}";
         }
     }
 }

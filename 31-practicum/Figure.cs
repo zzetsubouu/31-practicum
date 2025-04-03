@@ -16,10 +16,19 @@ namespace _31_practicum
         }
         public abstract double Area();
         public abstract double Perimeter();
+        //public abstract Figure NewFigure(); неправильно, в производных оно должно быть сттическим
         public virtual string Print()
         {
             return $"Название фигуры: {Name}";
         }
-
+        public static void DisplayAll(IEnumerable<Figure> figures)
+        {
+            Console.Clear();
+            Console.WriteLine("Все фигуры:");
+            foreach (var figure in figures)
+            {
+                Console.WriteLine(figure.Print());
+            }
+        }
     }
 }

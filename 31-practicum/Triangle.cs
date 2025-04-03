@@ -84,6 +84,17 @@ namespace _31_practicum
                 return true;
             }
         }
+        public static bool IsTriangleExist(double side1, double side2, double side3)
+        {
+            if (side1 <= side2 + side3 || side2 <= side1 + side3 || side3 <= side2 + side1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         public override double Area()
         {
             if (IsTriangleExist())
@@ -110,10 +121,30 @@ namespace _31_practicum
                 return 0;
             }
         }
+        public static Figure NewFigure()
+        {
+            Console.Clear();
+            Console.Write("Введите длину первой стороны: ");
+            double side1 = double.Parse(Console.ReadLine());
+            Console.Write("Введите длину второй стороны: ");
+            double side2 = double.Parse(Console.ReadLine());
+            Console.Write("Введите длину третьей стороны: ");
+            double side3 = double.Parse(Console.ReadLine());
+            if (IsTriangleExist(side1, side2, side3))
+            {
+                return new Triangle("треугольник", side1, side2, side3);
+            }
+            else
+            {
+                Console.WriteLine("Треугольника не существует");
+                return new Triangle("треугольник",0,0,0);
+            }
+            
+        }
         public override string Print()
         {
             if (!IsTriangleExist())
-                return $"первая сторона треугольника = {Side1}, вторая сторона = {Side2}, третья сторона = {Side3}";
+                return $"Первая сторона треугольника = {Side1}, вторая сторона = {Side2}, третья сторона = {Side3}, периметр = {Perimeter()}, площадь = {Area()}";
             else
                 return "Треугольника не существует";
         }

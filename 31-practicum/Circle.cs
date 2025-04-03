@@ -40,9 +40,16 @@ namespace _31_practicum
         {
             return 2 * Math.PI * Radius;
         }
+        public static Figure NewFigure()
+        {
+            Console.Clear();
+            Console.Write("Введите радиус окружности: ");
+            double r = double.Parse(Console.ReadLine());
+            return new Circle("круг",r);
+        }
         public override string Print()
         {
-            return $"Радиус круга равен{Radius}";
+            return $"Радиус круга равен{Radius}, периметр = {Perimeter()}, площадь = {Area()}";
         }
     }
 }

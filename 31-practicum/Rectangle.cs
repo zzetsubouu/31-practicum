@@ -61,9 +61,18 @@ namespace _31_practicum
         {
             return 2*(Side1 + Side2);
         }
+       public static Figure NewFigure()
+       {
+            Console.Clear();
+            Console.Write("Введите длину первой стороны: ");
+            double side1 = double.Parse(Console.ReadLine());
+            Console.Write("Введите длину вторйо стороны: ");
+            double side2 = double.Parse(Console.ReadLine());
+            return new Rectangle("прямоугольник", side1, side2);
+       } 
         public override string Print()
         {
-            return $"первая сторона прямоугольника = {Side1}, вторая сторона = {Side2}";
+            return $"Первая сторона прямоугольника = {Side1}, вторая сторона = {Side2}, периметр = {Perimeter()}, площадь = {Area()}";
         }
     }
 }
